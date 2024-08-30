@@ -12,11 +12,17 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!-- Панель инструментов с кнопками -->
         <StackPanel Orientation="Horizontal" Grid.Row="0" Background="#FF333333" Margin="10">
             <Button Name="OpenArchiveButton" Content="Открыть архив" Click="OpenArchiveButton_Click" Margin="0,0,10,0"/>
-            <Button Name="ExtractArchiveButton" Content="Извлечь архив" Click="ExtractArchiveButton_Click"/>
+            <Button Name="ExtractArchiveButton" Content="Извлечь архив" Click="ExtractArchiveButton_Click" Margin="0,0,10,0"/>
+            <Button Name="CreateArchiveButton" Content="Создать архив" Click="CreateArchiveButton_Click" Margin="0,0,10,0"/>
+            <!-- Поле для ввода пути к файлу -->
+            <TextBox Name="FilePathTextBox" Width="400" Margin="0,0,10,0" VerticalAlignment="Center"/>
+            <Button Name="OpenByPathButton" Content="Открыть по пути" Click="OpenByPathButton_Click"/>
         </StackPanel>
 
+        <!-- Список файлов -->
         <ListView Name="FilesListView" Grid.Row="1">
             <ListView.View>
                 <GridView>
