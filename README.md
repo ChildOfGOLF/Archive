@@ -17,7 +17,7 @@ Archive — это WPF-приложение для работы с ZIP-архи�
 ## Установка и запуск
 1. Клонируйте репозиторий:  
    ```bash
-   git clone https://github.com/yourusername/Archive.git
+   git clone https://github.com/ChildOfGOLF/Archive.git
    ```
 2. Откройте проект в Visual Studio  
 3. Соберите и запустите проект  
