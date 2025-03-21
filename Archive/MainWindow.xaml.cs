@@ -18,8 +18,7 @@ namespace Archive
         {
             InitializeComponent();
         }
-
-        // Обработчик нажатия кнопки "Открыть архив"
+        
         private void OpenArchiveButton_Click(object sender, RoutedEventArgs e)
         {
             var fileExplorer = new FileExplorerWindow();
@@ -33,7 +32,6 @@ namespace Archive
             }
         }
 
-        // Обработчик нажатия кнопки "Открыть по пути"
         private void OpenByPathButton_Click(object sender, RoutedEventArgs e)
         {
             string filePath = FilePathTextBox.Text;
@@ -48,7 +46,6 @@ namespace Archive
             }
         }
 
-        // Обработчик нажатия кнопки "Извлечь архив"
         private void ExtractArchiveButton_Click(object sender, RoutedEventArgs e)
         {
             var fileExplorer = new FileExplorerWindow();
@@ -80,7 +77,6 @@ namespace Archive
             }
         }
 
-        // Обработчик нажатия кнопки "Создать архив"
         private void CreateArchiveButton_Click(object sender, RoutedEventArgs e)
         {
             var folderBrowser = new Forms.FolderBrowserDialog();
@@ -98,7 +94,6 @@ namespace Archive
                 {
                     string archivePath = saveFileDialog.FileName;
 
-                    // Создание архива
                     using (var archive = ZipArchive.Create())
                     {
                         var options = new WriterOptions(CompressionType.Deflate)
@@ -106,8 +101,8 @@ namespace Archive
                             LeaveStreamOpen = false
                         };
 
-                        archive.AddAllFromDirectory(selectedFolder); // Убираем аргумент options для AddAllFromDirectory
-                        archive.SaveTo(archivePath, options); // Используем options только в SaveTo
+                        archive.AddAllFromDirectory(selectedFolder);
+                        archive.SaveTo(archivePath, options);
                     }
 
                     System.Windows.MessageBox.Show("Архив успешно создан!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -115,7 +110,6 @@ namespace Archive
             }
         }
 
-        // Метод для открытия архива и отображения его содержимого
         private void OpenArchive(string filePath)
         {
             using (var archive = ArchiveFactory.Open(filePath))
